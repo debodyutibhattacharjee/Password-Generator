@@ -2,8 +2,8 @@ const intputSlider = document.querySelector("[data-lengthSlider]");
 const lengthDisplay = document.querySelector("[data-lengthNumber]");
 
 const passwordDisplay = document.querySelector("[data-passwordDisplay]");
-const copyBtn = document.querySelector("[data-copy]");
-const copyMsg = document.querySelector("[data-copyMsg]");
+const copyBtn=document.querySelector("[data-copy]");
+const copyMsg=document.querySelector("[data-copyMsg]");
 const uppercaseCheck = document.querySelector("#uppercase");
 const lowercaseCheck = document.querySelector("#lowercase");
 const numbersCheck = document.querySelector("#numbers");
@@ -79,16 +79,16 @@ function calcStrength(){
 
 async function copyContent(){
     try{
-        await navigator.clipboard.writeText(passwordDisplay.value);
-        copyMsg.innerText = "Copied";
+        return navigator.clipboard.writeText(passwordDisplay.value);
+        copyMsg.innerText="copied";
     }
     catch(e){
-        copyMsg.innerText = "Failed";
+        copyMsg.innerText="Failed";
     }
-    // to make copy span visible
+    // to make the copied message visible
     copyMsg.classList.add("active");
-
-    setTimeout(()=> {
+    // to make it invisible after 2secs
+    setTimeout(()=>{
         copyMsg.classList.remove("active");
     },2000);
 }
